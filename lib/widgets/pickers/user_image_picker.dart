@@ -15,8 +15,11 @@ class _UserImagePickerState extends State<UserImagePicker> {
   // ignore: unused_field
   late File _pickeImage;
   void _pickedImage() async {
-    final File pickedImageFile =
-        (await ImagePicker().getImage(source: ImageSource.camera)) as File;
+    final File pickedImageFile = (await ImagePicker().getImage(
+      source: ImageSource.camera,
+      imageQuality: 50,
+      maxWidth: 150,
+    )) as File;
     setState(() {
       _pickeImage = pickedImageFile as File;
     });
